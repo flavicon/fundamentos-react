@@ -6,10 +6,10 @@ export default function primeiro() {
 
     return (
 
-    <div>
-        <h2>primeiro componente</h2>
-        <p>{ msg }</p>
-    </div>
-    
+        <div>
+            <h2>primeiro componente</h2>
+            <p>{msg}</p>
+        </div>
+
     )
 }
