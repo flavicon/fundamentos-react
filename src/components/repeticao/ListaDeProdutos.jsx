@@ -1,30 +1,32 @@
 import React from 'react';
+import './ListaDeProdutos.css'
 import produtos from '../../data/produtos'
 
+
 export default props => {
-    const listaProdutos = produtos.map((produto) => {
+    const listaProdutos = produtos.map((produto, i) => {
         return ( 
-            <tbody key={produto.id}>
-                <tr>
-                    <td>{produto.id}</td>
-                    <td>{produto.produto}</td>
-                    <td>R${produto.preco}</td>
-                </tr>          
-            </tbody>
+            <tr key={produto.id} className={i % 2 === 0 ? 'Par' : 'Impar'}>
+                <td>{produto.id}</td>
+                <td>{produto.produto}</td>
+                <td>R${produto.preco.toFixed(2).replace('.', ',')}</td>
+            </tr>          
         )
     })
 
     return(
-        <div>
-            <table border={1} width="100%">
+        <div className="ListaProdutos">
+            <table>
                 <thead>
                     <tr>
-                        <td>id</td>
-                        <td>produto</td>
-                        <td>preço</td>
+                        <th>id</th>
+                        <th>produto</th>
+                        <th>preço</th>
                     </tr>
                 </thead>
-                {listaProdutos}
+                <tbody>                   
+                    {listaProdutos}
+                </tbody>
             </table>
         </div>
     );
